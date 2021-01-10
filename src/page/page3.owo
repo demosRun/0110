@@ -1,0 +1,144 @@
+<template lang="pug">
+.page3
+  .so.so-0
+    <select class="select" name="" id="city" o-value="this.data.city">
+      <option value="" disabled="disabled">我在这里</option>
+      <option value="北京">北京</option>
+      <option value="天津">天津</option>
+      <option value="河北">河北</option>
+      <option value="山西">山西</option>
+      <option value="内蒙古">内蒙古</option>
+      <option value="辽宁">辽宁</option>
+      <option value="吉林">吉林</option>
+      <option value="黑龙江">黑龙江</option>
+      <option value="上海">上海</option>
+      <option value="江苏">江苏</option>
+      <option value="浙江">浙江</option>
+      <option value="安徽">安徽</option>
+      <option value="福建">福建</option>
+      <option value="江西">江西</option>
+      <option value="山东">山东</option>
+      <option value="河南">河南</option>
+      <option value="湖北">湖北</option>
+      <option value="湖南">湖南</option>
+      <option value="广东">广东</option>
+      <option value="广西">广西</option>
+      <option value="海南">海南</option>
+      <option value="重庆">重庆</option>
+      <option value="四川">四川</option>
+      <option value="贵州">贵州</option>
+      <option value="云南">云南</option>
+      <option value="陕西">陕西</option>
+      <option value="甘肃">甘肃</option>
+      <option value="青海">青海</option>
+      <option value="宁夏">宁夏</option>
+      <option value="新疆">新疆</option>
+      <option value="香港">香港</option>
+      <option value="澳门">澳门</option>
+      <option value="台湾">台湾</option>
+    </select>
+  .so.so-1
+    <select class="select" name="" id="toType" o-value="this.data.toType">
+      <option value="" disabled="disabled">我要表白</option>
+      <option value="4">我是警察节见证者，我要表白</option>
+      <option value="2">我的家人是警察，我要表白</option>
+      <option value="1">我的爱人是警察，我要表白</option>
+      <option value="3">我的朋友是警察，我要表白</option>
+    </select>
+  img.so.so-3(src="@|945.png|" o-tap="next")
+  img.so.so-4(src="@|947.png|" o-animation="shrink")
+
+</template>
+<script>
+module.exports = {
+  data: {
+    city: "",
+    toType: ""
+  },
+  show: function() {
+    this.data.city = ''
+    this.data.toType = ''
+    this.query('#toType')[0].selected = true
+    this.query('#city')[0].selected = true
+    setTimeout(() => {
+      this.handleEvent()
+    }, 100);
+  },
+  created: function () {
+    owo.tool.touch({
+      el: this.$el,
+      end: (e) => {
+        if (e.swipe[1] < -100) {
+          this.next()
+        } else if (e.swipe[1] > 100) {
+          owo.go('page2//moveToBottom/moveFromTop//moveToTop/moveFromBottom');
+        }
+      }
+    });
+  },
+  next: function () {
+    if (this.data.city && this.data.toType) {
+      owo.go('page4//moveToTop/moveFromBottom//moveToBottom/moveFromTop');
+    } else {
+      owo.tool.toast('请先选择位置及表白对象哦!')
+    }
+  }
+}
+</script>
+<style lang="less">
+.so {
+  position: absolute;
+}
+.so-0 {
+  left: 122px;
+  top: 486px;
+  width: 486px;
+  height: 89px;
+  z-index: 1;
+  background-repeat: no-repeat;
+  border: none;
+  font-size: 37px;
+  padding: 0 10px;
+  background-image: url('@|e5bec99dd25ce1cc2c39be0581dd706.png|');
+  background-color: transparent;
+}
+.so-1 {
+  left: 122px;
+  top: 667px;
+  width: 486px;
+  height: 89px;
+  z-index: 0;
+  background-repeat: no-repeat;
+  border: none;
+  font-size: 37px;
+  padding: 0 10px;
+  background-image: url('@|e5bec99dd25ce1cc2c39be0581dd706.png|');
+  background-color: transparent;
+}
+select {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  height: 85px;
+  font-size: 34px;
+  text-align: center;
+  color: #04167d;
+  font-weight: bold;
+  left: 65px;
+  width: 280px;
+}
+.so-3 {
+  left: 286px;
+  top: 853px;
+  z-index: 1;
+}
+.so-4 {
+  left: 317px;
+  top: 904px;
+  z-index: 0;
+}
+
+</style>

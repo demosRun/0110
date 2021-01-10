@@ -1,0 +1,29 @@
+<template lang="pug">
+.page5
+  canvas#canvas(width="750" height="1508")
+  img.show
+  img.so.so-4(src="@|901.png|" o-animation="flicker")
+</template>
+<script>
+module.exports = {
+  created: function () {
+  }
+}
+</script>
+<style lang="less">
+.show {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  opacity: 0;
+}
+.so-4 {
+  left: 254px;
+  top: 1268px;
+  z-index: 1;
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+}
+</style>

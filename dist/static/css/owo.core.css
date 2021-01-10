@@ -1,0 +1,485 @@
+body, html, .page, .page-box {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.owo-animation {
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.owo-animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.owo-animation-forward {
+  z-index: 99;
+}
+
+img {
+  border: none;
+}
+
+[route-active="false"] {
+  display: none;
+}
+
+/* 清除浮动 */
+.clear:after {
+  content: "";
+  height: 0;
+  line-height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+  zoom: 1;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.loading-box .loading {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -28%;
+  bottom: 0;
+  margin: auto;
+}
+
+.loading-box .loading-bar {
+  position: absolute;
+  top: 0%;
+  bottom: -16%;
+  height: 20px;
+  background-color: #001f78;
+  width: 80%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  border-radius: 20px;
+  padding: 6px;
+  box-shadow: 2px 3px 9px #5d739c;
+}
+
+.loading-box .num-bar {
+  background-color: white;
+  height: 20px;
+  border-radius: 20px;
+  width: 0%;
+  transition: width 0.5s;
+}
+
+.loading-box .num,
+.loading-box .text {
+  position: absolute;
+  top: 0%;
+  bottom: -25%;
+  margin: auto;
+  line-height: 50px;
+  height: 50px;
+  font-size: 36px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.loading-box .text {
+  bottom: -29%;
+}
+
+.loading-box .loading-text {
+  position: absolute;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+.page-1 .text-box {
+  width: 567px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 100%;
+}
+
+.page-1 .text-box img {
+  position: absolute;
+  top: 60%;
+  transition: top 10s;
+  transition-timing-function: linear;
+}
+
+.page-1 .tiaoguo {
+  position: absolute;
+  right: 40px;
+  bottom: 450px;
+}
+.page-2 .so {
+  position: absolute;
+}
+
+.page-2 .so-0 {
+  left: 45px;
+  top: 207px;
+  z-index: 4;
+}
+
+.page-2 .so-1 {
+  left: 220px;
+  top: 202px;
+  z-index: 3;
+}
+
+.page-2 .so-2 {
+  left: 572px;
+  top: 658px;
+  z-index: 2;
+}
+
+.page-2 .so-3 {
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+}
+
+.page-2 .so-4 {
+  left: 0px;
+  top: 818px;
+  z-index: 5;
+}
+
+.page-2 .doit {
+  position: absolute;
+  left: 576px;
+  top: 931px;
+}
+
+@-webkit-keyframes yourAnimation {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes yourAnimation {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100px);
+    opacity: 0.5;
+  }
+}
+
+.page-2 .elementToAnimate {
+  -webkit-animation: yourAnimation 1.5s infinite 0s linear;
+          animation: yourAnimation 1.5s infinite 0s linear;
+}
+[o-animation="shrink"] {
+  -webkit-animation: shrink 1s linear alternate infinite;
+  animation: shrink 1s linear alternate infinite;
+}
+@-webkit-keyframes shrink{
+  0%{-webkit-transform:scale(0.9);}
+  100%{-webkit-transform:scale(1);}
+}
+@keyframes shrink{
+  0%{transform:scale(0.9);}
+  100%{transform:scale(1);}
+}
+
+.page3 .so {
+  position: absolute;
+}
+
+.page3 .so-0 {
+  left: 122px;
+  top: 486px;
+  width: 486px;
+  height: 89px;
+  z-index: 1;
+  background-repeat: no-repeat;
+  border: none;
+  font-size: 37px;
+  padding: 0 10px;
+  background-image: url('../resource/e5bec99dd25ce1cc2c39be0581dd706.png');
+  background-color: transparent;
+}
+
+.page3 .so-1 {
+  left: 122px;
+  top: 667px;
+  width: 486px;
+  height: 89px;
+  z-index: 0;
+  background-repeat: no-repeat;
+  border: none;
+  font-size: 37px;
+  padding: 0 10px;
+  background-image: url('../resource/e5bec99dd25ce1cc2c39be0581dd706.png');
+  background-color: transparent;
+}
+
+.page3 select {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  height: 85px;
+  font-size: 34px;
+  text-align: center;
+  color: #04167d;
+  font-weight: bold;
+  left: 65px;
+  width: 280px;
+}
+
+.page3 .so-3 {
+  left: 286px;
+  top: 853px;
+  z-index: 1;
+}
+
+.page3 .so-4 {
+  left: 317px;
+  top: 904px;
+  z-index: 0;
+}
+
+[o-animation="floatUpDownSmall"] {
+  -webkit-animation: floatUpDownSmall 3s linear infinite;
+  animation: floatUpDownSmall 3s linear infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}
+
+@-webkit-keyframes floatUpDownSmall {
+  0% { transform: translateY(-4px);}
+  50% {transform: translateY(4px);}
+  100% {transform: translateY(-4px);}
+}
+
+@keyframes floatUpDownSmall {
+  0% { transform: translateY(-4px);}
+  50% {transform: translateY(4px);}
+  100% {transform: translateY(-4px);}
+}
+
+.page4 .so {
+  position: absolute;
+}
+
+.page4 .so-0 {
+  left: 43px;
+  top: 210px;
+  z-index: 5;
+}
+
+.page4 .so-1 {
+  left: 155px;
+  top: 480px;
+  z-index: 4;
+}
+
+.page4 .so-2 {
+  left: 97px;
+  top: 1141px;
+  z-index: 3;
+}
+
+.page4 .so-3 {
+  left: 453px;
+  top: 1141px;
+  z-index: 2;
+}
+
+.page4 .so-5 {
+  left: 0px;
+  top: 0px;
+  z-index: 0;
+}
+
+.page4 .text {
+  position: absolute;
+  left: 202px;
+  top: 570px;
+  z-index: 9;
+}
+
+.page4 .bi {
+  left: 541px;
+  top: 600px;
+  z-index: 9;
+}
+
+.page4 .date {
+  position: absolute;
+  left: 388px;
+  top: 857px;
+  z-index: 9;
+  font-size: 32px;
+  font-weight: bold;
+  color: #616160;
+  line-height: 42px;
+}
+
+.page4 .date1 {
+  position: absolute;
+  left: 485px;
+  top: 864px;
+  z-index: 9;
+  font-size: 20px;
+  font-weight: bold;
+  color: #616160;
+  line-height: 42px;
+}
+@-webkit-keyframes flicker {
+  from {
+    opacity: 100%;
+  }
+
+  to {
+    opacity: 20%;
+  }
+}
+
+@keyframes flicker {
+  from {
+    opacity: 100%;
+  }
+
+  to {
+    opacity: 20%;
+  }
+}
+
+[o-animation="flicker"] {
+  -webkit-animation: flicker 2s linear 0s infinite alternate;
+  animation: flicker 2s linear 0s infinite alternate;
+}
+
+.page5 .show {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  opacity: 0;
+}
+
+.page5 .so-4 {
+  left: 254px;
+  top: 1268px;
+  z-index: 1;
+  position: absolute;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+/* 页面切换动画 */
+.o-page-moveToTop {
+	-webkit-animation: moveToTop .6s ease both;
+	-moz-animation: moveToTop .6s ease both;
+	animation: moveToTop .6s ease both;
+}
+
+@-webkit-keyframes moveToTop {
+	to { -webkit-transform: translateY(-100%); }
+}
+@-moz-keyframes moveToTop {
+	to { -moz-transform: translateY(-100%); }
+}
+@keyframes moveToTop {
+	to { transform: translateY(-100%); }
+}
+.o-page-moveFromBottom {
+	-webkit-animation: moveFromBottom .6s ease both;
+	-moz-animation: moveFromBottom .6s ease both;
+	animation: moveFromBottom .6s ease both;
+}
+@-webkit-keyframes moveFromBottom {
+	from { -webkit-transform: translateY(100%); }
+}
+@-moz-keyframes moveFromBottom {
+	from { -moz-transform: translateY(100%); }
+}
+@keyframes moveFromBottom {
+	from { transform: translateY(100%); }
+}
+.o-page-moveToBottom {
+	-webkit-animation: moveToBottom .6s ease both;
+	-moz-animation: moveToBottom .6s ease both;
+	animation: moveToBottom .6s ease both;
+}
+
+@-webkit-keyframes moveToBottom {
+	to { -webkit-transform: translateY(100%); }
+}
+@-moz-keyframes moveToBottom {
+	to { -moz-transform: translateY(100%); }
+}
+@keyframes moveToBottom {
+	to { transform: translateY(100%); }
+}
+.o-page-moveFromTop {
+	-webkit-animation: moveFromTop .6s ease both;
+	-moz-animation: moveFromTop .6s ease both;
+	animation: moveFromTop .6s ease both;
+}
+
+@-webkit-keyframes moveFromTop {
+	from { -webkit-transform: translateY(-100%); }
+}
+@-moz-keyframes moveFromTop {
+	from { -moz-transform: translateY(-100%); }
+}
+@keyframes moveFromTop {
+	from { transform: translateY(-100%); }
+}
+
+/* 动画效果 */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  animation-name: zoomIn;
+}
+

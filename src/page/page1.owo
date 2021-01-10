@@ -1,0 +1,46 @@
+<template lang="pug">
+.page-1
+  .text-box
+    img(src="@|text.png|")
+  img.tiaoguo(src="@|tiaoguo.png|" go="page2//moveToTop/moveFromBottom/true/moveToBottom/moveFromTop")
+</template>
+
+<script>
+  module.exports = {
+    created: function () {
+      setTimeout(() => {
+        this.query('.text-box img').style.top = '-40%'
+      }, 100);
+      setTimeout(() => {
+        if (owo.activePage == 'page1') {
+          owo.go('page2//moveToTop/moveFromBottom/true/moveToBottom/moveFromTop');
+        }
+      }, 12000);
+    }
+  }
+</script>
+
+
+<style lang="less">
+
+.text-box {
+  width: 567px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 100%;
+  
+  img {
+    position: absolute;
+    top: 60%;
+    transition: top 10s;
+    transition-timing-function: linear;
+  }
+}
+.tiaoguo {
+  position: absolute;
+  right: 40px;
+  bottom: 450px;
+}
+</style>

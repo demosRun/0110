@@ -1,0 +1,130 @@
+<template lang="pug">
+.loading-box
+  //- img.loading(src="@|bianqian.png|")
+  .loading-bar
+    .num-bar
+  //- span.text Loading
+  .num 0%
+  //- img.loading-text(src="@|1loading.gif|")
+</template>
+
+<script>
+  module.exports = {
+    data: {
+      imgList: [
+        "@|1662.jpg|",
+        "@|bg.png|",
+        "@|bg-1.jpg|",
+        "@|bg-1.png|",
+        "@|bg-2.png|",
+        "@|bg-3.png|",
+        "@|loading.png|",
+        "@|1572.png|",
+        "@|410.png|",
+        "@|text.png|",
+        "@|bianqian.png|",
+        "@|1305.png|",
+        "@|945.png|",
+        "@|947.png|",
+        "@|1573.png|",
+        "@|e5bec99dd25ce1cc2c39be0581dd706.png|",
+        "@|tiaoguo.png|",
+        "@|307.jpg|",
+      ]
+    },
+    show: function () {
+      const mum = owo.query('.num')[0]
+      const numBar = owo.query('.num-bar')[0]
+      this.preloadImages(this.data.imgList, (e) => {
+        setTimeout(() => {
+          owo.go('page1////true');
+        }, 1500)
+      }, (num) => {
+        numBar.style.width = num + '%'
+        mum.innerHTML = num + '%'
+      })
+    },
+    preloadImage: function (src, successFn) {
+      var image = new Image()
+      image.src = src
+      image.onload = function () {
+        successFn && successFn(src)
+      }
+      image.onerror = function (error) {
+        successFn && successFn(src)
+      }
+    },
+    preloadImages: function (srcs, doneFn, progressFn) {
+      if (!Array.isArray(srcs)) {
+        console.log('第一个参数只能是一个数组')
+      } else {
+        var allCount = srcs.length
+        var doneCount = 0
+        srcs.forEach((srcItem) => {
+          this.preloadImage(srcItem, function () {
+            doneCount++
+            progressFn && progressFn(Math.ceil(100 * doneCount / allCount))
+            if (doneCount === allCount) {
+              doneFn && doneFn()
+            }
+          })
+        })
+      }
+    }
+  }
+</script>
+
+
+<style lang="less">
+
+.loading {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -28%;
+  bottom: 0;
+  margin: auto;
+}
+.loading-bar {
+  position: absolute;
+  top: 0%;
+  bottom: -16%;
+  height: 20px;
+  background-color: #001f78;
+  width: 80%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  border-radius: 20px;
+  padding: 6px;
+  box-shadow: 2px 3px 9px #5d739c;
+}
+.num-bar {
+  background-color: white;
+  height: 20px;
+  border-radius: 20px;
+  width: 0%;
+  transition: width 0.5s;
+}
+.num, .text {
+  position: absolute;
+  top: 0%;
+  bottom: -25%;
+  margin: auto;
+  line-height: 50px;
+  height: 50px;
+  font-size: 36px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+.text {
+  bottom: -29%;
+}
+.loading-text {
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+}
+</style>

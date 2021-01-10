@@ -1,0 +1,168 @@
+<template lang="pug">
+.page4
+  img.so.so-0(src="@|1660.png|")
+  img.so.so-1(src="@|1661.png|")
+  img.so.so-2(src="@|1664.png|" go="page3//moveToBottom/moveFromTop//TopmoveToTop/moveFromBottom")
+  img.so.so-3(src="@|1663.png|" go="page5//moveToTop/moveFromBottom//moveToBottom/moveFromTop")
+  img.so.so-5(src="@|1662.jpg|")
+  img.so.bi(src="@|bi.png|" o-animation="floatUpDownSmall")
+  img.text
+  .date
+  .date1
+</template>
+<script>
+module.exports = {
+  show: function () {
+    let bgURL = '@|bg-2.png|'
+    let textURL = '@|text-3.png|'
+    let leftP = '223'
+    console.log(textURL)
+    var date = new Date()
+    var month = date.getMonth() + 1
+    var day = date.getDate()
+    var dataStr = `${date.getFullYear()}.${month < 10 ? '0' + month : month}.${day < 10 ? '0' + day : day}`
+    if (!owo.script.page3.data.city) owo.script.page3.data.city = '北京'
+    var showSign = dataStr + '于' + owo.script.page3.data.city
+    this.query('.date').innerText = owo.script.page3.data.city
+    this.query('.date1').innerText = dataStr
+    switch (owo.script.page3.data.toType) {
+      case '1':
+        bgURL = '@|1662.jpg|'
+        textURL = '@|text-4.png|'
+        leftP = '181'
+        break;
+      case '2':
+        leftP = '208'
+        bgURL = '@|bg-3.png|'
+        textURL = '@|text-1.png|'
+        break;
+      case '3':
+        bgURL = '@|bg-1.png|'
+        textURL = '@|text-2.png|'
+        break;
+      case '4':
+        bgURL = '@|bg-2.png|'
+        textURL = '@|text-3.png|'
+        leftP = '210'
+        break;
+    }
+    this.query('.so-5').src = bgURL
+    this.query('.text').src = textURL
+    this.query('.text').style.left = leftP + 'px'
+    setTimeout(() => {
+      // 绘制canvas
+      var canvas = oCanvas.create({
+        canvas: "#canvas"
+      });
+
+      canvas.addChild(canvas.display.image({
+        x: 0,
+        y: 0,
+        width: 750,
+        height: 1508,
+        // origin: { x: "center", y: "center" },
+        image: bgURL
+      }))
+      canvas.addChild(canvas.display.image({
+        x: 43,
+        y: 210,
+        width: 678,
+        height: 972,
+        // origin: { x: "center", y: "center" },
+        image: "@|share.png|"
+      }))
+      canvas.addChild(canvas.display.image({
+        x: leftP,
+        y: 542,
+        // origin: { x: "center", y: "center" },
+        image: textURL
+      }))
+      canvas.addChild(canvas.display.text({
+        x: 382,
+        y: 824,
+        width: 200,
+        font: "bold 38px sans-serif",
+        size: 30,
+        // origin: { x: "center", y: "top" },
+        text: owo.script.page3.data.city,
+        fill: "#616160"
+      }))
+      canvas.addChild(canvas.display.text({
+        x: 475,
+        y: 835,
+        width: 200,
+        font: "bold 38px sans-serif",
+        size: 18,
+        // origin: { x: "center", y: "top" },
+        text: dataStr,
+        fill: "#616160"
+      }))
+      setTimeout(() => {
+        document.querySelector('.show').src = canvas.canvasElement.toDataURL("image/png")
+      }, 500);
+    }, 1000);
+    
+  }
+}
+</script>
+<style lang="less">
+  .so {
+    position: absolute;
+  }
+  .so-0 {
+    left: 43px;
+    top: 210px;
+    z-index: 5;
+  }
+  .so-1 {
+    left: 155px;
+    top: 480px;
+    z-index: 4;
+  }
+  .so-2 {
+    left: 97px;
+    top: 1141px;
+    z-index: 3;
+  }
+  .so-3 {
+    left: 453px;
+    top: 1141px;
+    z-index: 2;
+  }
+  .so-5 {
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+  }
+  .text {
+    position: absolute;
+    left: 202px;
+    top: 570px;
+    z-index: 9;
+  }
+  .bi {
+    left: 541px;
+    top: 600px;
+    z-index: 9;
+  }
+  .date {
+    position: absolute;
+    left: 388px;
+    top: 857px;
+    z-index: 9;
+    font-size: 32px;
+    font-weight: bold;
+    color: #616160;
+    line-height: 42px;
+  }
+  .date1 {
+    position: absolute;
+    left: 485px;
+    top: 864px;
+    z-index: 9;
+    font-size: 20px;
+    font-weight: bold;
+    color: #616160;
+    line-height: 42px;
+  }
+</style>

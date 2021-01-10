@@ -1,0 +1,77 @@
+<template lang="pug">
+.page-2
+  img.so.so-0(src="@|1305.png|")
+  img.so.so-1(src="@|410.png|")
+  img.so.so-2(src="@|1573.png|")
+  img.so.so-4(src="@|1572.png|")
+  img.doit.elementToAnimate(src="@|doit.png|")
+</template>
+
+<script>
+  module.exports = {
+    created: function () {
+      owo.tool.touch({
+        el: this.$el,
+        end: function end(e) {
+          if (e.swipe[1] < -100) {
+            owo.go('page3//moveToTop/moveFromBottom//moveToBottom/moveFromTop');
+          } else if (e.swipe[1] > 100) {
+            owo.go('page1//moveToBottom/moveFromTop//moveToTop/moveFromBottom');
+          }
+        }
+      });
+      owo.animate('zoomIn', this.query('.so-1'), 1000)
+    }
+  }
+</script>
+
+
+<style lang="less">
+.so {
+  position: absolute;
+}
+.so-0 {
+  left: 45px;
+  top: 207px;
+  z-index: 4;
+}
+.so-1 {
+  left: 220px;
+  top: 202px;
+  z-index: 3;
+}
+.so-2 {
+  left: 572px;
+  top: 658px;
+  z-index: 2;
+}
+.so-3 {
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+}
+.so-4 {
+  left: 0px;
+  top: 818px;
+  z-index: 5;
+}
+.doit {
+  position: absolute;
+  left: 576px;
+  top: 931px;
+}
+@keyframes yourAnimation{
+    0%{
+      transform: translateY(0px);
+      opacity: 1;
+    }
+    100%{
+      transform: translateY(-100px);
+      opacity: 0.5;
+    }
+}
+
+.elementToAnimate {
+    animation: yourAnimation 1.5s infinite 0s linear;
+}
+</style>
